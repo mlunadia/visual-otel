@@ -21,10 +21,10 @@ export function Header() {
               />
               <div>
                 <h1 className="text-xl font-bold text-[var(--text-primary)]">
-                  OpenTelemetry Explorer
+                  OpenTelemetry Visual Guide
                 </h1>
                 <p className="text-xs text-[var(--text-secondary)]">
-                  Interactive guide to observability
+                  A visual walkthrough of an OTel pipeline
                 </p>
               </div>
             </div>
