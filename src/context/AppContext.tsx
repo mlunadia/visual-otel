@@ -41,12 +41,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  // Wrapper that also opens sidebar when a signal is selected
+  const handleSetActiveSignal = (signal: Signal) => {
+    setActiveSignal(signal);
+    setExpandedPanel(null); // Clear any expanded panel to show signal content
+    setSidebarOpen(true);
+  };
+
   return (
     <AppContext.Provider value={{
       theme,
       toggleTheme,
       activeSignal,
-      setActiveSignal,
+      setActiveSignal: handleSetActiveSignal,
       expandedPanel,
       setExpandedPanel: handleSetExpandedPanel,
       isAnimating,
