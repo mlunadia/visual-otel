@@ -349,7 +349,7 @@ function CollectorNodeHorizontal() {
             <span>↑</span> Exporters
           </div>
           <div className="space-y-1 text-[10px] font-mono">
-            <div className="px-1.5 py-0.5 rounded bg-[#F5A800]/10 text-[#F5A800]">otlp/elastic</div>
+            <div className="px-1.5 py-0.5 rounded bg-[#F5A800]/10 text-[#F5A800]">otlp</div>
           </div>
         </motion.div>
       </div>
