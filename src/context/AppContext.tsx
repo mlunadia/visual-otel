@@ -33,6 +33,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
+  // Wrapper that also opens sidebar when a panel is selected
+  const handleSetExpandedPanel = (panel: ExpandedPanel) => {
+    setExpandedPanel(panel);
+    if (panel !== null) {
+      setSidebarOpen(true);
+    }
+  };
+
   return (
     <AppContext.Provider value={{
       theme,
@@ -40,7 +48,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       activeSignal,
       setActiveSignal,
       expandedPanel,
-      setExpandedPanel,
+      setExpandedPanel: handleSetExpandedPanel,
       isAnimating,
       setIsAnimating,
       sidebarOpen,
