@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
 type Signal = 'traces' | 'metrics' | 'logs' | 'all';
 type ExpandedPanel = 'sdk' | 'collector' | 'receivers' | 'processors' | 'exporters' | 'semconv' | 'resource' | null;

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Lightbulb, X } from 'lucide-react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface InsightCardProps {
   title: string;
