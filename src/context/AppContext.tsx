@@ -12,6 +12,8 @@ interface AppContextType {
   setExpandedPanel: (panel: ExpandedPanel) => void;
   isAnimating: boolean;
   setIsAnimating: (value: boolean) => void;
+  sidebarOpen: boolean;
+  setSidebarOpen: (value: boolean) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -21,6 +23,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [activeSignal, setActiveSignal] = useState<Signal>('all');
   const [expandedPanel, setExpandedPanel] = useState<ExpandedPanel>(null);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.toggle('light', theme === 'light');
@@ -40,6 +43,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setExpandedPanel,
       isAnimating,
       setIsAnimating,
+      sidebarOpen,
+      setSidebarOpen,
     }}>
       {children}
     </AppContext.Provider>

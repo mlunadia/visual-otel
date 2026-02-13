@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, PanelRightOpen } from 'lucide-react';
 import { useAppContext } from '../../context/AppContext';
 import { TracesPanel } from '../Panels/TracesPanel';
 import { MetricsPanel } from '../Panels/MetricsPanel';
@@ -10,7 +10,7 @@ import { SemConvPanel } from '../Panels/SemConvPanel';
 import { ResourceDetectionPanel } from '../Panels/ResourceDetectionPanel';
 
 export function Sidebar() {
-  const { expandedPanel, setExpandedPanel, activeSignal } = useAppContext();
+  const { expandedPanel, setExpandedPanel, activeSignal, sidebarOpen, setSidebarOpen } = useAppContext();
 
   const getPanelContent = () => {
     // If a specific panel is expanded, show it
@@ -66,27 +66,50 @@ export function Sidebar() {
     return signalTitles[activeSignal];
   };
 
+  // Toggle button when sidebar is closed
+  if (!sidebarOpen) {
+    return (
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setSidebarOpen(true)}
+        className="fixed right-4 top-24 p-3 rounded-lg glass border border-[var(--border-color)] hover:border-[var(--otel-blue)] transition-colors z-40"
+        title="Open sidebar"
+      >
+        <PanelRightOpen className="w-5 h-5 text-[var(--text-secondary)]" />
+      </motion.button>
+    );
+  }
+
   return (
     <motion.aside
       initial={{ x: 400, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="fixed right-0 top-20 bottom-0 w-[500px] glass border-l border-[var(--border-color)] overflow-hidden flex flex-col"
+      exit={{ x: 400, opacity: 0 }}
+      className="fixed right-0 top-20 bottom-0 w-[500px] glass border-l border-[var(--border-color)] overflow-hidden flex flex-col z-40"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-color)]">
         <h2 className="text-lg font-semibold text-[var(--text-primary)]">
           {getPanelTitle()}
         </h2>
-        {expandedPanel && (
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setExpandedPanel(null)}
-            className="p-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors"
-          >
-            <X className="w-5 h-5 text-[var(--text-secondary)]" />
-          </motion.button>
-        )}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => {
+            if (expandedPanel) {
+              setExpandedPanel(null);
+            } else {
+              setSidebarOpen(false);
+            }
+          }}
+          className="p-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors"
+          title={expandedPanel ? "Back to overview" : "Close sidebar"}
+        >
+          <X className="w-5 h-5 text-[var(--text-secondary)]" />
+        </motion.button>
       </div>
 
       {/* Content */}
