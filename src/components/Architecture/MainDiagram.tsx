@@ -89,7 +89,10 @@ export function MainDiagram() {
                 <SvgParticle path={PATHS.webFrontend} color="#60a5fa" duration={3} delay={0} />
               )}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
-                <SvgParticle path={PATHS.webFrontend} color="#34d399" duration={4} delay={0.5} />
+                <>
+                  <SvgParticle path={PATHS.webFrontend} color="#34d399" duration={4} delay={0} />
+                  <SvgParticle path={PATHS.webFrontend} color="#34d399" duration={4} delay={2} />
+                </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
                 <SvgParticle path={PATHS.webFrontend} color="#fbbf24" duration={5} delay={1.2} />
@@ -100,7 +103,10 @@ export function MainDiagram() {
                 <SvgParticle path={PATHS.apiGateway} color="#60a5fa" duration={3} delay={0.8} />
               )}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
-                <SvgParticle path={PATHS.apiGateway} color="#34d399" duration={4} delay={1.8} />
+                <>
+                  <SvgParticle path={PATHS.apiGateway} color="#34d399" duration={4} delay={0} />
+                  <SvgParticle path={PATHS.apiGateway} color="#34d399" duration={4} delay={2} />
+                </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
                 <SvgParticle path={PATHS.apiGateway} color="#fbbf24" duration={5} delay={0.3} />
@@ -111,7 +117,10 @@ export function MainDiagram() {
                 <SvgParticle path={PATHS.orderService} color="#60a5fa" duration={3} delay={1.5} />
               )}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
-                <SvgParticle path={PATHS.orderService} color="#34d399" duration={4} delay={0.2} />
+                <>
+                  <SvgParticle path={PATHS.orderService} color="#34d399" duration={4} delay={0} />
+                  <SvgParticle path={PATHS.orderService} color="#34d399" duration={4} delay={2} />
+                </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
                 <SvgParticle path={PATHS.orderService} color="#fbbf24" duration={5} delay={2.5} />
@@ -119,7 +128,10 @@ export function MainDiagram() {
               
               {/* Linux VMs - metrics, logs only */}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
-                <SvgParticle path={PATHS.linuxVMs} color="#34d399" duration={4.5} delay={0} />
+                <>
+                  <SvgParticle path={PATHS.linuxVMs} color="#34d399" duration={4.5} delay={0} />
+                  <SvgParticle path={PATHS.linuxVMs} color="#34d399" duration={4.5} delay={2} />
+                </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
                 <SvgParticle path={PATHS.linuxVMs} color="#fbbf24" duration={5.5} delay={1.5} />
@@ -127,7 +139,10 @@ export function MainDiagram() {
               
               {/* Kubernetes - metrics, logs only */}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
-                <SvgParticle path={PATHS.kubernetes} color="#34d399" duration={4.5} delay={1.2} />
+                <>
+                  <SvgParticle path={PATHS.kubernetes} color="#34d399" duration={4.5} delay={0} />
+                  <SvgParticle path={PATHS.kubernetes} color="#34d399" duration={4.5} delay={2} />
+                </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
                 <SvgParticle path={PATHS.kubernetes} color="#fbbf24" duration={5.5} delay={0.7} />
@@ -148,9 +163,8 @@ export function MainDiagram() {
               )}
               {(activeSignal === 'all' || activeSignal === 'metrics') && (
                 <>
-                  <SvgParticle path={PATHS.toMetrics} color="#34d399" duration={2} delay={0.2} />
-                  <SvgParticle path={PATHS.toMetrics} color="#34d399" duration={2} delay={0.9} />
-                  <SvgParticle path={PATHS.toMetrics} color="#34d399" duration={2} delay={1.6} />
+                  <SvgParticle path={PATHS.toMetrics} color="#34d399" duration={2} delay={0} />
+                  <SvgParticle path={PATHS.toMetrics} color="#34d399" duration={2} delay={2} />
                 </>
               )}
               {(activeSignal === 'all' || activeSignal === 'logs') && (
