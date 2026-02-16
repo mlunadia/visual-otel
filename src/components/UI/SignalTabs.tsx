@@ -15,12 +15,13 @@ export function SignalTabs() {
   const { activeSignal, setActiveSignal } = useAppContext();
 
   return (
-    <div className="flex gap-2 p-1 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
+    <div className="flex gap-1 md:gap-2 p-1 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
       {tabs.map((tab) => (
         <motion.button
           key={tab.id}
           onClick={() => setActiveSignal(tab.id)}
-          className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+          aria-label={tab.label}
+          className={`relative flex-1 md:flex-initial flex items-center justify-center md:justify-start gap-2 px-2 md:px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             activeSignal === tab.id
               ? 'text-[var(--text-primary)]'
               : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -38,7 +39,7 @@ export function SignalTabs() {
           <span className="relative z-10" style={{ color: activeSignal === tab.id ? tab.color : 'inherit' }}>
             {tab.icon}
           </span>
-          <span className="relative z-10">{tab.label}</span>
+          <span className="relative z-10 hidden md:inline">{tab.label}</span>
         </motion.button>
       ))}
     </div>
