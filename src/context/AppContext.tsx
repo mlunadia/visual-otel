@@ -23,7 +23,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [activeSignal, setActiveSignal] = useState<Signal>('all');
   const [expandedPanel, setExpandedPanel] = useState<ExpandedPanel>(null);
   const [isAnimating, setIsAnimating] = useState(true);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 768 ? false : true
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle('light', theme === 'light');
