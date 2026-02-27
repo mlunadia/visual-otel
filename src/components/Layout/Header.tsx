@@ -1,6 +1,6 @@
 import { ThemeToggle } from '../UI/ThemeToggle';
 import { SignalTabs } from '../UI/SignalTabs';
-import { Play, Pause } from 'lucide-react';
+import { Play, Pause, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAppContext } from '../../context/AppContext';
 
@@ -59,6 +59,15 @@ export function Header() {
                 </>
               )}
             </motion.button>
+            <a
+              href="https://mlunadia.github.io/otel-blueprints/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-2 md:px-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] hover:border-[var(--otel-blue)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span className="text-sm font-medium hidden md:inline">OTel Blueprints</span>
+            </a>
             <ThemeToggle />
           </div>
         </div>
